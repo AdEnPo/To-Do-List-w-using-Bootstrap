@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr-TR">
+<head>
+	<title>deneme</title>
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">   
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome.css">
+</head>
+<body>
+	<section id="notlar">
+		<div class="container">
+			<div class="row">
+				<nav class="navbar navbar-expand-sm fixed-top navbar-light ">
+			  		<a class="navbar-brand" href="#notlar"><img src="../giphy1.gif" width="60" height="50"> Notlar</a></a>
+			  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			    		<span class="navbar-toggler-icon"></span>
+			  		</button>
+			  		<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			    		<ul class="navbar-nav">
+					      	<!--<li class="nav-item active">
+					      		<a class="nav-link" href="#notlar">Notlar<span class="sr-only">(current)</span></a>
+					      	</li>
+					   	   	<li class="nav-item">
+					        	<a class="nav-link" href="#notgir">Not Gir </a>
+					      	</li>
+			    		</ul>-->
+			  		</div>
+				</nav>
+		 	</div>
+		 	<div class="row text-center" >
+		 		<div class="col-sm-12">
+		 			<h2>Listem</h2>
+		 		</div>
+				<div class="col-sm-12">
+					<input class="girdi" type="text" id="ip" placeholder="Not Al..">
+				</div>
+				<!--//"placeholder gizli yaziyo"-->
+				<!--<button onclick="yeniekle()"> ekle</button>-->
+				<div class="col-sm-12">
+					<!--<button class="btn btn-primary btn-lg" onclick="yeniekle()"> ekle</button>-->
+					<span class="btn btn-primary btn-md eklebtn" onclick="yeniekle()" >Notu Ekle</span>
+				</div>
+				
+			</div>
+	 	</div>
+	 	<div>
+			<ul class="col-md-6 mx-auto" id="List">
+				<li >sdfasf</li>
+				<li class="checked">dsdfdgsdggd</li>
+				<li >sdddxfasf</li>
+				<li >sdfişlasf</li>
+				<li >qwertyuıopğ,işlkjhgfdsazxazxcvbnmöçi,üğpokmnbhvgtfrdesdxcfvgyhuıoklökmnjbhgv1234567890*ğplokıjhgfd</li>
+
+			</ul>
+		</div>
+</section>
+
+<script  src="js/bootstrap.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script  type="text/javascript">
+		var list = document.getElementsByTagName("LI");
+		var i;
+		for (var i = 0; i < list.length; i++) {
+			var span1 = document.createElement("SPAN");
+			var span2 = document.createElement("SPAN");
+			var txt = document.createTextNode("\u00D7");//x harfinin tam kapat işareti olanı
+			span1.className = "close";//hepsini akraba yaptık ki kolay ulaşalım
+			span1.appendChild(txt);
+			list[i].appendChild(span1);
+			/*span2.className = "checked";
+			span2.appendChild(txt);
+			list[i].appendChild(span2);*/
+		}//Listedeki her elemanı kapatmak ve işaretlemek için gerekli tuş ataması 
+
+		var close = document.getElementsByClassName("close");
+		var i;
+		for (var i = 0; i < close.length; i++) {
+			close[i].onclick = function () {
+				var div=this.parentElement;//close spanının bulunduğu satırı al
+				div.style.display = "none";//listeden sil
+			}//close a basınca notu silme
+		}
+
+		var listes = document.getElementById("List");
+		listes.addEventListener('click', function(ev) {
+		if (ev.target.tagName === 'LI') {
+			ev.target.classList.toggle('checked');
+			}
+		}, false);
+		/*listes.onclick=function(ev){
+			if (ev.target.tagName === 'LI') {
+			ev.target.classList.toggle('checked');
+			}
+		}*/
+
+
+		function yeniekle() {//Ekle butonuna basınca listeye eleman ekleme
+			var li = document.createElement("LI");
+			var girisDegeri = document.getElementById("ip").value;
+			var j=document.createTextNode(girisDegeri);
+			li.appendChild(j);
+			if(girisDegeri ===""){//bir şey yazmadan butona basılırsa
+				alert("Hiç Bir Şey Yazmadın");
+			}
+			else{
+				document.getElementById("List").appendChild(li);
+			}
+			document.getElementById("ip").value = "";
+
+			var span = document.createElement("SPAN");
+			var txt = document.createTextNode("\u00D7");
+			span.className = "close";
+			li.appendChild(span);
+			span.appendChild(txt);
+			for (i = 0; i < close.length; i++) {
+			 	close[i].onclick = function() {
+					var div = this.parentElement;
+					div.style.display = "none";
+				}
+			} 
+		}
+
+	</script>
+
+</body>
+</html>

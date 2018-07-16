@@ -1,0 +1,105 @@
+html,
+body,
+#notlar{
+	height: 100%;
+}
+/*body{
+	height: 100%;
+	background-image: url(../../resim5.jpg);
+	/*background-repeat: repeat;
+	background-attachment: fixed;
+	background-color: white;*
+	background-position: center center;
+	}*/
+body{
+	background: url('../../resim5.jpg') no-repeat center center fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+.fixed-top{
+	max-width: 1140px;
+	margin: 0 auto;
+}
+h2{
+	margin-top: 13%;
+	font-size: 40px;
+	font-family: Ravie;
+}
+.girdi{
+	width: 40%;
+	height: 200%;
+	border-radius: 8px;
+	border: none;
+	text-align: left center;
+
+}
+.eklebtn{
+	margin-top: 30px;
+	height: 50px;	
+	width: 40%;
+	background-color: darkcyan;
+	border: none;
+	text-align: center;
+	font-size: 24px;
+	color: white; 
+	transition: 0.4s;
+	margin-bottom: 5px;
+
+}
+.eklebtn:hover{
+	background-color: white;	
+	opacity: 0.8;
+	color: #fed136; 
+
+}
+
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+}
+ul li{
+	cursor: pointer;
+	position: relative;
+	padding: 12px 45px 12px 40px;
+	font-size: 18px;
+	transition: 0.2s;
+	word-wrap: break-word;
+}
+
+ul li:hover{
+	background: #ddd;	
+
+}
+ul li.checked {
+    background: #888;
+    opacity: 0.5;/*saydamlaştırıyo*/
+    color: #fff;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    content: '';
+    position: absolute;	
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 3px 3px 0;
+    top: 15px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 8px;
+}
+.close{
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding: 12px 16px 12px 16px; 
+}
+.close:hover{
+	background-color: #f44336;
+	color: white;
+}
